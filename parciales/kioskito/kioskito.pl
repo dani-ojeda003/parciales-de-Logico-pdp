@@ -1,6 +1,4 @@
 %1
-
-
 atiende(dodain, lunes, 9, 15).
 atiende(dodain, miercoles, 9, 15).
 atiende(dodain, viernes, 9, 15).
@@ -19,15 +17,7 @@ atiende(dodain,Dia,Horario1,Horario2).
 atiende(vale, Dia, Horario1,Horario2):-
 atiende(juanC,Dia,Horario1,Horario2).
 
-
-
-%nadie_hace_el_mismo_horario_que_leoC_no_se_agrega_por_universo_cerrado
-
-%maiu_esta_pensando_no_se_agrega_por_universo_cerrado
-
-
 %2
-
 quienAtiende(Persona, Dia, HorarioPuntual):-
   atiende(Persona, Dia, HorarioInicio, HorarioFinal),
   between(HorarioInicio, HorarioFinal, HorarioPuntual).
@@ -39,7 +29,6 @@ foreverAlone(Persona, Dia, HorarioPuntual):-
 
 
 %4
-
 atiendeEl(Persona,Dia):-
   atiende(Persona,Dia,_,_),
   forall()
@@ -54,7 +43,6 @@ combinar([_|PersonasPosibles], Personas):-combinar(PersonasPosibles, Personas).
 
 
 %5
-
 venta(dodain, fecha(10, 8), [golosinas(1200), cigarrillos(jockey), golosinas(50)]).
 
 venta(dodain, fecha(12, 8), [bebidas(alcoholicas, 8), bebidas(noAlcoholicas, 1), golosinas(10)]).
@@ -82,6 +70,3 @@ ventaImportante(bebidas(alcoholicas, _)).
 
 ventaImportante(bebidas(_, Cantidad)):-
 Cantidad > 5.
-
-
-

@@ -1,3 +1,4 @@
+
 personaje(pumkin, ladron([licorerias, estacionesDeServicio])).
 personaje(honeyBunny, ladron([licorerias, estacionesDeServicio])).
 personaje(vincent,mafioso(maton)).
@@ -74,6 +75,7 @@ encargo(vincent,  elVendedor, cuidar(mia)).
 encargo(marsellus, winston, ayudar(jules)).
 encargo(marsellus, winston, ayudar(vincent)).
 encargo(marsellus, vincent, buscar(butch, losAngeles)).
+encargo(marsellus, jules, buscar(butch, losAngeles)).
 
 
 estaEnProblemas(butch).
@@ -90,7 +92,7 @@ estaEnProblemas(Personaje):-
 
 %4
 sanCayetano(Personaje):-
-    encargo(Personaje,_,_),
+    tienePersonaCerca(Personaje),
     forall(tieneCerca(Personaje,OtroPersonaje),encargo(Personaje, OtroPersonaje, _)).
 
 tieneCerca(Personaje,OtroPersonaje):-
@@ -100,6 +102,8 @@ tieneCerca(Personaje,OtroPersonaje):-
 tieneCerca(Personaje,OtroPersonaje):-
     trabajaPara(Personaje,OtroPersonaje).
 
+tienePersonaCerca(Personaje):-
+    tieneCerca(Personaje,_).
 
 %5
 masAtareado(Personaje):-
